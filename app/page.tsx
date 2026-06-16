@@ -9,27 +9,45 @@ const PAIRS_PER_PAGE = 10;
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   // Get unique categories
   const allCategories = Array.from(new Set(fontPairs.map(pair => pair.category).filter(Boolean))) as string[];
-  
+
   // Count pairs per category
   const categoryCounts: Record<string, number> = {};
   allCategories.forEach(category => {
     categoryCounts[category] = fontPairs.filter(pair => pair.category === category).length;
   });
 
-  // Pagination logic
-  const totalPages = Math.ceil(fontPairs.length / PAIRS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PAIRS_PER_PAGE;
-  const endIndex = startIndex + PAIRS_PER_PAGE;
-  const currentPairs = fontPairs.slice(startIndex, endIndex);
+  const filteredPairs = selectedCategory
+    ? fontPairs.filter(pair => pair.category === selectedCategory)
+    : fontPairs;
 
-  // Go to page
+  // Pagination logic
+  const totalPages = Math.ceil(filteredPairs.length / PAIRS_PER_PAGE);
+  const safePage = Math.min(currentPage, Math.max(totalPages, 1));
+  const startIndex = (safePage - 1) * PAIRS_PER_PAGE;
+  const endIndex = startIndex + PAIRS_PER_PAGE;
+  const currentPairs = filteredPairs.slice(startIndex, endIndex);
+
+  const selectCategory = (category: string | null) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const goToPage = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const categoryButtonClass = (isActive: boolean) =>
+    `px-4 py-2 border rounded-lg text-sm font-medium transition-colors ${
+      isActive
+        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300'
+        : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+    }`;
 
   return (
     <main className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -47,19 +65,33 @@ export default function Home() {
         
         {/* Category Navigation */}
         <nav className="flex flex-wrap justify-center gap-2 mb-8" aria-label="Font categories">
+          <button
+            type="button"
+            onClick={() => selectCategory(null)}
+            className={categoryButtonClass(selectedCategory === null)}
+            aria-pressed={selectedCategory === null}
+          >
+            All <span className="text-gray-600 dark:text-gray-400">({fontPairs.length})</span>
+          </button>
           {allCategories.map((category) => (
-            <a 
+            <button
               key={category}
-              href={`#${category.toLowerCase()}`}
-              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              type="button"
+              onClick={() => selectCategory(category)}
+              className={categoryButtonClass(selectedCategory === category)}
+              aria-pressed={selectedCategory === category}
             >
               {category} <span className="text-gray-600 dark:text-gray-400">({categoryCounts[category]})</span>
-            </a>
+            </button>
           ))}
         </nav>
-        
+
         <div className="text-sm text-gray-700 dark:text-gray-400">
-          Showing {startIndex + 1}-{Math.min(endIndex, fontPairs.length)} of {fontPairs.length} font pairs
+          {filteredPairs.length === 0 ? (
+            <>No font pairs in this category</>
+          ) : (
+            <>Showing {startIndex + 1}-{Math.min(endIndex, filteredPairs.length)} of {filteredPairs.length} font pairs</>
+          )}
         </div>
       </header>
       
@@ -82,8 +114,8 @@ export default function Home() {
         >
           {/* Previous Button */}
           <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
+            onClick={() => goToPage(safePage - 1)}
+            disabled={safePage === 1}
             className="px-4 py-2 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             aria-label="Previous page"
           >
@@ -97,12 +129,12 @@ export default function Home() {
                 key={page}
                 onClick={() => goToPage(page)}
                 className={`px-4 py-2 rounded-lg border transition-colors ${
-                  currentPage === page
+                  safePage === page
                     ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300'
                     : 'border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
                 aria-label={`Page ${page}`}
-                aria-current={currentPage === page ? 'page' : undefined}
+                aria-current={safePage === page ? 'page' : undefined}
               >
                 {page}
               </button>
@@ -111,8 +143,8 @@ export default function Home() {
           
           {/* Next Button */}
           <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
+            onClick={() => goToPage(safePage + 1)}
+            disabled={safePage === totalPages}
             className="px-4 py-2 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             aria-label="Next page"
           >

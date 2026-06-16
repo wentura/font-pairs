@@ -40,7 +40,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
           Google Font Pairs
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+        <p className="text-lg text-gray-700 dark:text-gray-400 max-w-2xl mx-auto mb-8">
           Discover beautiful typography combinations. Each pair showcases a heading font 
           with a complementary paragraph font. All fonts are optimized with Next.js.
         </p>
@@ -51,14 +51,14 @@ export default function Home() {
             <a 
               key={category}
               href={`#${category.toLowerCase()}`}
-              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
-              {category} <span className="text-gray-500 dark:text-gray-400">({categoryCounts[category]})</span>
+              {category} <span className="text-gray-600 dark:text-gray-400">({categoryCounts[category]})</span>
             </a>
           ))}
         </nav>
         
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-sm text-gray-700 dark:text-gray-400">
           Showing {startIndex + 1}-{Math.min(endIndex, fontPairs.length)} of {fontPairs.length} font pairs
         </div>
       </header>
@@ -84,7 +84,7 @@ export default function Home() {
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             aria-label="Previous page"
           >
             Previous
@@ -98,8 +98,8 @@ export default function Home() {
                 onClick={() => goToPage(page)}
                 className={`px-4 py-2 rounded-lg border transition-colors ${
                   currentPage === page
-                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
-                    : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300'
+                    : 'border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
                 aria-label={`Page ${page}`}
                 aria-current={currentPage === page ? 'page' : undefined}
@@ -113,7 +113,7 @@ export default function Home() {
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             aria-label="Next page"
           >
             Next
@@ -121,7 +121,7 @@ export default function Home() {
         </nav>
       )}
       
-      <footer className="mt-16 text-center text-sm text-gray-500 dark:text-gray-400 py-8">
+      <footer className="mt-16 text-center text-sm text-gray-700 dark:text-gray-400 py-8">
         <p>Showcasing {fontPairs.length} Google Font pairs with Next.js optimization</p>
         <p className="mt-2">
           Font pairs sourced from Google Fonts, Pagecloud, Figma, and Designed by Harj

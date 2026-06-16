@@ -622,14 +622,14 @@
  */
 :root {
   /* Light mode colors (default) */
-  --color-bg-primary: 255 255 255;
-  --color-bg-secondary: 249 250 251;
-  --color-bg-tertiary: 243 244 246;
+  --color-bg-primary: 243 244 246;
+  --color-bg-secondary: 255 255 255;
+  --color-bg-tertiary: 229 231 235;
   --color-text-primary: 37 38 39;
-  --color-text-secondary: 107 114 128;
-  --color-text-tertiary: 156 163 175;
-  --color-border: 229 231 235;
-  --color-card-bg: 249 250 251;
+  --color-text-secondary: 75 85 99;
+  --color-text-tertiary: 55 65 81;
+  --color-border: 209 213 219;
+  --color-card-bg: 255 255 255;
   
   /* Original fonts */
   --font-montserrat: 'Montserrat', sans-serif;
@@ -701,7 +701,7 @@
 /* Apply color variables to Tailwind */
 @layer base {
   :root {
-    @apply bg-white text-gray-900;
+    @apply bg-gray-100 text-gray-900;
   }
   
   .dark {

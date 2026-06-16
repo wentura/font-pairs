@@ -1,3 +1,5 @@
+"use client";
+
 // FontCard component - displays a single font pair
 // Uses CSS variables for font families defined in globals.css
 // Fonts are loaded via next/font/google in layout.tsx and applied via CSS variables
@@ -89,18 +91,18 @@ export default function FontCard({ pair, index }: FontCardProps) {
 
   // Category colors for visual distinction
   const categoryColors: Record<string, string> = {
-    Classic: 'bg-amber-50 border-amber-200 text-amber-700',
-    Elegant: 'bg-purple-50 border-purple-200 text-purple-700',
-    Modern: 'bg-blue-50 border-blue-200 text-blue-700',
-    Creative: 'bg-green-50 border-green-200 text-green-700',
-    Minimalist: 'bg-gray-50 border-gray-200 text-gray-700',
+    Classic: 'bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-700 text-amber-700 dark:text-amber-300',
+    Elegant: 'bg-purple-100 dark:bg-purple-900/30 border-purple-200 dark:border-purple-700 text-purple-700 dark:text-purple-300',
+    Modern: 'bg-blue-100 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300',
+    Creative: 'bg-green-100 dark:bg-green-900/30 border-green-200 dark:border-green-700 text-green-700 dark:text-green-300',
+    Minimalist: 'bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300',
   };
   
-  const categoryClass = category ? categoryColors[category] || 'bg-gray-50 border-gray-200 text-gray-700' : 'bg-gray-50 border-gray-200 text-gray-700';
+  const categoryClass = category ? categoryColors[category] || 'bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300' : 'bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300';
 
   return (
     <article 
-      className="p-8 bg-neutral-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+      className="card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200 dark:border-gray-700"
       aria-labelledby={`font-pair-${id}-title`}
     >
       {/* Category badge */}
@@ -112,7 +114,7 @@ export default function FontCard({ pair, index }: FontCardProps) {
       
       <h2 
         id={`font-pair-${id}-title`}
-        className="font-extrabold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-gray-900"
+        className="font-extrabold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-gray-900 dark:text-white"
         style={{
           fontFamily: headingFontVar,
           fontWeight: heading.weight,
@@ -121,19 +123,19 @@ export default function FontCard({ pair, index }: FontCardProps) {
         {heading.name}
       </h2>
       <p 
-        className="text-base md:text-lg text-gray-700 leading-relaxed"
+        className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed"
         style={{
           fontFamily: paragraphFontVar,
           fontWeight: paragraph.weight,
         }}
       >
-        <span className="font-semibold text-gray-900">{paragraph.name}</span> is Lorem ipsum dolor sit amet 
+        <span className="font-semibold text-gray-900 dark:text-white">{paragraph.name}</span> is Lorem ipsum dolor sit amet 
         consectetur adipisicing elit. Optio, et necessitatibus eaque alias sunt enim voluptas a quasi, 
         itaque possimus ratione consectetur? Praesentium, blanditiis possimus minima similique cupiditate 
         incidunt commodi!
       </p>
-      <div className="mt-4 pt-4 border-t border-gray-200">
-        <p className="text-xs text-gray-500">
+      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
           Heading: {heading.fontFamily} ({heading.weight}) | Body: {paragraph.fontFamily} ({paragraph.weight})
         </p>
       </div>

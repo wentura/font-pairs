@@ -451,17 +451,21 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from './components/ThemeProvider';
+
 interface RootLayoutProps {
   children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${allFontClasses} antialiased bg-white text-gray-900`}
+        className={`${allFontClasses} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

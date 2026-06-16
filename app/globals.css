@@ -4,10 +4,11 @@
 
 /*
  * Font family definitions using CSS variables
- * These map to the fonts loaded via next/font/google in lib/fonts.js
+ * These map to the fonts loaded via next/font/google in layout.tsx
  * The actual font files are self-hosted and optimized by Next.js
  */
 :root {
+  /* Original fonts */
   --font-montserrat: 'Montserrat', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
   --font-playfair-display: 'Playfair Display', serif;
@@ -24,6 +25,43 @@
   --font-bitter: 'Bitter', serif;
   --font-pt-sans: 'PT Sans', sans-serif;
   --font-pt-serif: 'PT Serif', serif;
+
+  /* New fonts - Classic */
+  --font-quattrocento: 'Quattrocento', serif;
+  --font-quattrocento-sans: 'Quattrocento Sans', sans-serif;
+  --font-libre-baskerville: 'Libre Baskerville', serif;
+  --font-eb-garamond: 'EB Garamond', serif;
+  --font-proza-libre: 'Proza Libre', serif;
+
+  /* New fonts - Elegant */
+  --font-cinzel: 'Cinzel', serif;
+  --font-fauna-one: 'Fauna One', serif;
+  --font-yeseva-one: 'Yeseva One', serif;
+  --font-josefin-sans: 'Josefin Sans', sans-serif;
+  --font-spectral: 'Spectral', serif;
+  --font-dm-serif-display: 'DM Serif Display', serif;
+
+  /* New fonts - Modern */
+  --font-nunito: 'Nunito', sans-serif;
+  --font-quicksand: 'Quicksand', sans-serif;
+  --font-work-sans: 'Work Sans', sans-serif;
+  --font-robot-slab: 'Roboto Slab', serif;
+
+  /* New fonts - Creative */
+  --font-abril-fatface: 'Abril Fatface', serif;
+  --font-inconsolata: 'Inconsolata', monospace;
+  --font-arvo: 'Arvo', serif;
+  --font-philosopher: 'Philosopher', sans-serif;
+  --font-muli: 'Muli', sans-serif;
+  --font-unica-one: 'Unica One', serif;
+  --font-crimson-text: 'Crimson Text', serif;
+
+  /* New fonts - Minimalist */
+  --font-source-serif-pro: 'Source Serif Pro', serif;
+  --font-cantarell: 'Cantarell', sans-serif;
+  --font-cabin: 'Cabin', sans-serif;
+  --font-karla: 'Karla', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 /* Smooth scrolling for better UX */

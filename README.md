@@ -4,28 +4,75 @@ A showcase of beautiful Google Font combinations for web designers and developer
 
 ## Features
 
-- **10 hand-curated font pairings** - Each pair combines a heading font with a complementary paragraph font
+- **45+ expert-curated font pairings** - Each pair combines a heading font with a complementary paragraph font
 - **Optimized font loading** - Uses Next.js `next/font/google` for self-hosted, performant font loading
 - **No external requests** - All Google Fonts are self-hosted and optimized
-- **Reduced CSS bundle** - From 616 lines to 43 lines (93% reduction)
+- **Reduced CSS bundle** - From 616 lines to ~90 lines (85% reduction)
 - **Semantic HTML** - Proper accessibility with ARIA labels and semantic elements
 - **Responsive design** - Works on mobile, tablet, and desktop
 - **TypeScript support** - Full type safety
+- **Category organization** - Font pairs categorized by style (Classic, Elegant, Modern, Creative, Minimalist)
 
 ## Font Pairs Included
 
-| # | Heading Font | Body Font |
-|---|--------------|-----------|
-| 1 | Montserrat | Roboto |
-| 2 | Playfair Display | Open Sans |
-| 3 | Lora | Lato |
-| 4 | Poppins | Source Sans Pro |
-| 5 | Oswald | Merriweather |
-| 6 | Raleway | Roboto |
-| 7 | Fira Sans | Tinos |
-| 8 | Ubuntu | Open Sans |
-| 9 | Bitter | Source Sans Pro |
-| 10 | PT Sans | PT Serif |
+### Original (10 pairs)
+| # | Category | Heading Font | Body Font |
+|---|----------|--------------|-----------|
+| 1 | Modern | Montserrat | Roboto |
+| 2 | Elegant | Playfair Display | Open Sans |
+| 3 | Elegant | Lora | Lato |
+| 4 | Modern | Poppins | Source Sans Pro |
+| 5 | Classic | Oswald | Merriweather |
+| 6 | Modern | Raleway | Roboto |
+| 7 | Modern | Fira Sans | Tinos |
+| 8 | Modern | Ubuntu | Open Sans |
+| 9 | Classic | Bitter | Source Sans Pro |
+| 10 | Classic | PT Sans | PT Serif |
+
+### New Additions (35+ pairs)
+
+#### Classic Style
+- Quattrocento + Quattrocento Sans
+- Fjalla One + Libre Baskerville
+- Oswald + EB Garamond
+- Cormorant Garamond + Proza Libre
+- Libre Baskerville + Source Sans Pro
+
+#### Elegant Style
+- Cinzel + Fauna One
+- Yeseva One + Josefin Sans
+- Lora + Roboto
+- Spectral + Karla
+- DM Serif Display + Nunito
+
+#### Modern Style
+- Poppins + Merriweather
+- Roboto + Nunito
+- Quicksand + Quicksand
+- Work Sans + Open Sans
+- Roboto + Roboto Slab
+- Montserrat + Lato
+
+#### Creative Style
+- Abril Fatface + Poppins
+- Karla + Inconsolata
+- Arvo + Lato
+- Philosopher + Inter
+- Unica One + Crimson Text
+
+#### Minimalist Style
+- Source Sans Pro + Source Serif Pro
+- Fjalla One + Cantarell
+- PT Sans + Cabin
+- Raleway + Open Sans
+
+## Data Sources
+
+Font pairs curated from expert sources:
+- [Google Fonts Official Recommendations](https://fonts.google.com/knowledge/choosing_type/pairing_typefaces)
+- [Pagecloud - Top 50 Google Font Pairings](https://www.pagecloud.com/blog/best-google-fonts-pairings)
+- [Figma Google Fonts](https://www.figma.com/google-fonts/)
+- [Designed by Harj - 10 Best Google Font Pairings](https://designedbyharj.com/10-best-google-font-pairings/)
 
 ## Performance Improvements
 

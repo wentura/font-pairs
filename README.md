@@ -12,6 +12,8 @@ A showcase of beautiful Google Font combinations for web designers and developer
 - **Responsive design** - Works on mobile, tablet, and desktop
 - **TypeScript support** - Full type safety
 - **Category organization** - Font pairs categorized by style (Classic, Elegant, Modern, Creative, Minimalist)
+- **🌙 Dark Mode** - Toggle between light and dark themes with automatic system preference detection
+- **📄 Pagination** - Navigate through font pairs with smooth pagination (10 pairs per page)
 
 ## Font Pairs Included
 
@@ -65,6 +67,27 @@ A showcase of beautiful Google Font combinations for web designers and developer
 - Fjalla One + Cantarell
 - PT Sans + Cabin
 - Raleway + Open Sans
+
+## 🌙 Dark Mode
+
+The project now supports dark mode with the following features:
+
+- **Automatic detection**: Automatically detects system preference for dark mode
+- **Manual toggle**: Click the sun/moon icon in the header to toggle between themes
+- **Persistent preference**: Your theme choice is saved to localStorage and remembered across visits
+- **Smooth transitions**: All color transitions are smooth and non-jarring
+- **Full coverage**: All UI elements (cards, text, borders, buttons) adapt to the current theme
+
+## 📄 Pagination
+
+With 45+ font pairs, pagination helps manage the content:
+
+- **10 pairs per page**: Clean, manageable chunks of content
+- **Page navigation**: Previous/Next buttons for easy browsing
+- **Page numbers**: Direct navigation to any page
+- **Active state**: Current page is highlighted
+- **Smooth scrolling**: Automatically scrolls to top when changing pages
+- **Range indicator**: Shows which pairs are currently displayed (e.g., "1-10 of 45")
 
 ## Data Sources
 
